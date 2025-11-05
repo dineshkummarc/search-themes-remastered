@@ -1,0 +1,24 @@
+# Protect directory
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# Disable directory browsing
+Options -Indexes
+
+# Protect files
+<FilesMatch "^.*\.(log|txt|md)$">
+Order allow,deny
+Deny from all
+</FilesMatch>
+
+# Allow specific files
+<FilesMatch "^(readme|license)\.txt$">
+Order allow,deny
+Allow from all
+</FilesMatch> 
