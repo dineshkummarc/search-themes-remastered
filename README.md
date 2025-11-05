@@ -1,1 +1,1 @@
-# search-nulled-themes-remastered
+# search-themes-remastered
